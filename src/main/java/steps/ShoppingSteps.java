@@ -12,34 +12,34 @@ public class ShoppingSteps {
 
     ShoppingPage shoppingPage = new ShoppingPage();
 
-    @When("в корзину добавлен первый продукт с наименованием \"(.+)\"")
-    public void stepAddFirstProduct(String productName){
-        shoppingPage.scrollToElement(shoppingPage.getProduct(productName));
-        shoppingPage.addProduct(productName);
+    @When("в корзину добавлен первый продукт, id которого \"(.+)\"")
+    public void stepAddFirstProduct(String id){
+        shoppingPage.scrollToElement(shoppingPage.getProduct(id));
+        shoppingPage.addProduct(id);
     }
 
-    @When("в корзину добавлен второй продукт с наименованием \"(.+)\"")
-    public void stepAddSecondProduct(String productName){
-        shoppingPage.scrollToElement(shoppingPage.getProduct(productName));
-        shoppingPage.addProduct(productName);
+    @When("в корзину добавлен второй продукт, id которого \"(.+)\"")
+    public void stepAddSecondProduct(String id){
+        shoppingPage.scrollToElement(shoppingPage.getProduct(id));
+        shoppingPage.addProduct(id);
     }
 
-    @When("в корзину добавлен третий продукт с наименованием \"(.+)\"")
-    public void stepAddThirdProduct(String productName){
-        shoppingPage.scrollToElement(shoppingPage.getProduct(productName));
-        shoppingPage.addProduct(productName);
+    @When("в корзину добавлен третий продукт, id которого \"(.+)\"")
+    public void stepAddThirdProduct(String id){
+        shoppingPage.scrollToElement(shoppingPage.getProduct(id));
+        shoppingPage.addProduct(id);
     }
 
-    @When("в корзину добавлен четвертый продукт с наименованием \"(.+)\"")
-    public void stepAddFourthProduct(String productName){
-        shoppingPage.scrollToElement(shoppingPage.getProduct(productName));
-        shoppingPage.addProduct(productName);
+    @When("в корзину добавлен четвертый продукт, id которого \"(.+)\"")
+    public void stepAddFourthProduct(String id){
+        shoppingPage.scrollToElement(shoppingPage.getProduct(id));
+        shoppingPage.addProduct(id);
     }
 
-    @When("в корзину добавлен пятый продукт с наименованием \"(.+)\"")
-    public void stepAddFifthProduct(String productName){
-        shoppingPage.scrollToElement(shoppingPage.getProduct(productName));
-        shoppingPage.addProduct(productName);
+    @When("в корзину добавлен пятый продукт, id которого \"(.+)\"")
+    public void stepAddFifthProduct(String id){
+        shoppingPage.scrollToElement(shoppingPage.getProduct(id));
+        shoppingPage.addProduct(id);
     }
 
     @Then("переход в корзину")

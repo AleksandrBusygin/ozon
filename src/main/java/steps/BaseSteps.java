@@ -41,12 +41,4 @@ public class BaseSteps {
         Init.getDriver().quit();
     }
 
-    private static HashMap<String,String> variables = new HashMap<String, String>();
-    public static String getVariable(String key){
-        return variables.get(key);
-    }
-    public static void setVariable(String key, String value){
-        variables.put(key,value);
-    }
-
 }

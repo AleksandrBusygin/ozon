@@ -12,35 +12,29 @@ public class BasketSteps {
     MainPage mainPage = new MainPage();
 
 
-    @When("первый товар \"(.+)\" присутствует в корзине")
-    public void stepCheckFirstProduct(String productName){
-        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(productName));
+    @When("первый товар, id которого \"(.+)\" присутствует в корзине")
+    public void stepCheckFirstProduct(String id){
+        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(id));
     }
 
-    @When("второй товар \"(.+)\" присутствует в корзине")
-    public void stepCheckSecondProduct(String productName){
-        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(productName));
+    @When("второй товар, id которого \"(.+)\" присутствует в корзине")
+    public void stepCheckSecondProduct(String id){
+        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(id));
     }
 
-    @When("третий товар \"(.+)\" присутствует в корзине")
-    public void stepCheckThirdProduct(String productName){
-        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(productName));
+    @When("третий товар, id которого \"(.+)\" присутствует в корзине")
+    public void stepCheckThirdProduct(String id){
+        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(id));
     }
 
-    @When("четвертый товар \"(.+)\" присутствует в корзине")
-    public void stepCheckFourthProduct(String productName){
-        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(productName));
+    @When("четвертый товар, id которого \"(.+)\" присутствует в корзине")
+    public void stepCheckFourthProduct(String id){
+        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(id));
     }
 
-    @When("пятый товар \"(.+)\" присутствует в корзине")
-    public void stepCheckFifthProduct(String productName){
-        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(productName));
-    }
-
-    @When("итоговая сумма равна \"(.+)\"")
-    public void stepCheckTotalAmount(String expectedAmount){
-        String actualAmount = basketPage.getTotalAmount();
-        Assert.assertEquals("Итогоая сумма равно - [$s]. Ожидалось значение - [$d]",actualAmount,expectedAmount);
+    @When("пятый товар, id которого \"(.+)\" присутствует в корзине")
+    public void stepCheckFifthProduct(String id){
+        Assert.assertTrue("Продукт [$s] остутствует в корзине",basketPage.productExist(id));
     }
 
     @Then("удаление всех добавленных товаров из корзины")
@@ -55,14 +49,6 @@ public class BasketSteps {
         basketPage.click(basketPage.logOut);
     }
 
-    @Then("повторный вход на сайт с имеющимся логином \"(.+)\" и паролем \"(.+)\"")
-    public void secondAuthorization(String login, String password){
-        basketPage.click(basketPage.checkIn);
-        mainPage.click(mainPage.mailEntrance);
-        mainPage.fillField(mainPage.mailInput, login);
-        mainPage.fillField(mainPage.passwordInput, password);
-        mainPage.click(mainPage.entranceButton);
-    }
 
     @Then("проверка отсутствия товаров в корзине")
     public void checkBasketIsEmpty() {

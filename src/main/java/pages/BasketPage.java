@@ -7,9 +7,6 @@ import java.util.List;
 
 public class BasketPage extends BasePage {
 
-    @FindBy(xpath = "//*[@data-test-id=\"header-cart\"]")
-    public WebElement basket;
-
     @FindBy(xpath = "//div[@data-v-7723c718]//child::div[@class=\"main split-item\"]//a[@data-test-id=\"cart-item-title\"]")
     public List<WebElement> productList;
     // список товаров в корзине
@@ -34,22 +31,14 @@ public class BasketPage extends BasePage {
     public WebElement basketIsEmpty;
     // надпись пустая корзина
 
-    @FindBy(xpath = "/div[@class='row m-big']//span[@class ='price-number']")
-    public WebElement totalAmount;
-
-    @FindBy(xpath = "//a[contains(text(),'войдите')]")
-    public WebElement checkIn;
-
-    public boolean productExist(String productName){
+    public boolean productExist(String id){
         for (WebElement item: productList){
-            if (isElementPresent(item) && item.getText().equalsIgnoreCase(productName)){
+            scrollToElement(item);
+            if (isElementPresent(item) && item.getText().equals(getVariable(id))){
                 return true;
             }
         }
         return false;
     }
-
-    public String getTotalAmount(){
-        return totalAmount.getText().replaceAll("\\D","");
-    }
+//    getAttribute("data-v-a834bb0e href")
 }

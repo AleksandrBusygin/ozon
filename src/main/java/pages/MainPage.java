@@ -5,9 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends BasePage {
 
-    @FindBy(xpath = "//span[contains(text(),'Мой OZON')]")
-    public WebElement firstEnterance;
-
     @FindBy(xpath = "//*[@data-test-id=\"header-cart\"]")
     public WebElement basket;
 

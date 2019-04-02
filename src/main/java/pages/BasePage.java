@@ -9,11 +9,21 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.Init;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
 
     public BasePage(){ PageFactory.initElements(Init.getDriver(), this); }
+
+    private static HashMap<String,String> variables = new HashMap<String, String>();
+    public static String getVariable(String key){
+        return variables.get(key);
+    }
+    public static void setVariable(String key, String value){
+        variables.put(key,value);
+    }
+
 
     public void fillField(WebElement element, String text){
         element.click();
@@ -44,8 +54,8 @@ public class BasePage {
 
     public void waitPageLoaded() {
         WebDriverWait wait = new WebDriverWait(Init.getDriver(), 30);
-        wait.ignoring(NoSuchElementException.class).until((ExpectedCondition<Boolean>) driver -> !isPresent(By.xpath("//div[@class=\"loading block-loader\"")));
-        wait.ignoring(NoSuchElementException.class).until((ExpectedCondition<Boolean>) driver -> !isPresent(By.xpath("class=\"modal-container\"")));
+        wait.ignoring(NoSuchElementException.class).until((ExpectedCondition<Boolean>) driver -> !isPresent(By.xpath("//div[@class='loading block-loader']")));
+        wait.ignoring(NoSuchElementException.class).until((ExpectedCondition<Boolean>) driver -> !isPresent(By.xpath("//div[@data-test-id='modal-container']")));
     }
 
 
